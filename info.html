@@ -1,4 +1,85 @@
 <!DOCTYPE html>
+<html>
+<head>
+  <title>How Credit Scores Affect You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <p>Hello</p>
+  <header>
+    <h1>How Credit Scores Affect You</h1>
+    <p>This page shows how your background can influence your credit score.</p>
+  </header>
+
+  <section id="interaction">
+    <!-- Content will go here -->
+  </section>
+
+  <script>
+    const questions = [
+      {
+        question: "What's your age group?",
+        options: [
+          { text: "18–24", response: "X" },
+          { text: "25–40", response: "X" },
+          { text: "41–60", response: "X" },
+          { text: "60+", response: "X" }
+        ]
+      },
+      {
+        question: "What is your racial identity?",
+        options: [
+          { text: "Black or African American", response: "X" },
+          { text: "Latino or Hispanic", response: "X" },
+          { text: "White", response: "X" },
+          { text: "Asian, Native, or Other", response: "X"}
+        ]
+      },
+      {
+        question: "What is your income level?",
+        options: [
+          { text: "Low income", response: "X" },
+          { text: "Middle income", response: "X" },
+          { text: "High income", response: "X" }
+        ]
+      },
+      {
+        question: "What kind of ZIP code do you live in?",
+        options: [
+          { text: "Low-income or majority nonwhite", response: "X" },
+          { text: "Mixed or changing", response: "X" },
+          { text: "Wealthy", response: "X" }
+        ]
+      }
+    ];
+
+    let step = 0;
+    const container = document.getElementById('interaction');
+
+    function showQuestion() {
+      const current = questions[step];
+      container.innerHTML = `<h2>${current.question}</h2>`;
+      current.options.forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option.text;
+        button.onclick = () => showResponse(option.response);
+        container.appendChild(button);
+      });
+    }
+
+    function showResponse(response) {
+      container.innerHTML = `<p class='response'>${response}</p><button onclick='next()'>Continue</button>`;
+    }
+
+    function next() {
+      step++;
+      if (step < questions.length) {
+        showQuestion();
+      } else {
+        container.innerHTML = `<h2>You're done!</h2><p>This shows how credit scoring systems reflect inequality—not just your financial behavior.</p><a href='index.html'>&larr; Go back</a>`;
+      }
+    }
+
+    showQuestion();
+  </script>
 </body>
+</html>

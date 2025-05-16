@@ -56,3 +56,37 @@ footer {
 .crystal-ball:hover {
     transform: scale(1.1);
 }
+
+h2 {
+    color: #1a1a4b;
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 1em;
+    background-color: #1a1a4b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+button:hover {
+    background-color: #333366;
+}
+
+.response {
+    margin-top: 20px;
+    font-style: italic;
+    color: #1a1a4b;
+}
+
+a {
+    color: #1a1a4b;
+    text-decoration: none;
+}
